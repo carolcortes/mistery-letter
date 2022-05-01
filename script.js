@@ -3,6 +3,25 @@ console.log('Olá, mundo!');
 const createBtn = document.getElementById('criar-carta');
 const input = document.getElementById('carta-texto');
 const card = document.getElementById('carta-gerada');
+const style = ['newspaper', 'magazine1', 'magazine2'];
+const size = ['medium', 'big', 'reallybig'];
+const rotation = ['rotateleft', 'rotateright'];
+const inclination = ['skewleft', 'skewright'];
+
+// add Classes
+
+function addClasses(word) {
+  word.classList.add(style[Math.floor(Math.random() * 3)]);
+  word.classList.add(size[Math.floor(Math.random() * 3)]);
+  word.classList.add(rotation[Math.floor(Math.random() * 2)]);
+  word.classList.add(inclination[Math.floor(Math.random() * 2)]);
+}
+
+function changeClasses(event) {
+  const myEvent = event;
+  myEvent.target.className = '';
+  addClasses(myEvent.target);
+}
 
 // create card
 function createCard() {
@@ -15,6 +34,8 @@ function createCard() {
       const wordSpan = document.createElement('span');
       card.appendChild(wordSpan);
       wordSpan.innerText = element;
+      addClasses(wordSpan);
+      wordSpan.addEventListener('click', changeClasses);
     });
   }
 }
