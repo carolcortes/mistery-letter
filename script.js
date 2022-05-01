@@ -8,8 +8,8 @@ const card = document.getElementById('carta-gerada');
 function createCard() {
   card.innerText = '';
   const words = input.value.split(' ');
-  if (input.value === '' || input.value === ' ') {
-    card.innerText = 'Por favor, digite o conteúdo da carta';
+  if (input.value.trim().length === 0) {
+    card.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
     words.forEach((element) => {
       const wordSpan = document.createElement('span');
