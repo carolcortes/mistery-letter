@@ -3,12 +3,12 @@ console.log('Olá, mundo!');
 const createBtn = document.getElementById('criar-carta');
 const input = document.getElementById('carta-texto');
 const card = document.getElementById('carta-gerada');
+
+// add Classes
 const style = ['newspaper', 'magazine1', 'magazine2'];
 const size = ['medium', 'big', 'reallybig'];
 const rotation = ['rotateleft', 'rotateright'];
 const inclination = ['skewleft', 'skewright'];
-
-// add Classes
 
 function addClasses(word) {
   word.classList.add(style[Math.floor(Math.random() * 3)]);
@@ -40,3 +40,13 @@ function createCard() {
   }
 }
 createBtn.addEventListener('click', createCard);
+
+// counter
+const count = document.createElement('p');
+count.id = 'carta-contador';
+document.getElementsByTagName('main')[0].appendChild(count);
+function counter() {
+  count.innerText = '';
+  count.innerText = document.getElementsByTagName('span').length;
+}
+createBtn.addEventListener('click', counter);
